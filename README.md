@@ -11,15 +11,8 @@ Test files for Onvif cameras functionality.
 6.	Корпусная камера 36х 8МП (в лаборатории, вероятно будет установлена в кожух).
 
 для 5 из 6 камер уже можно составить таблицы, на основе исследований, сделанных с помощью протокола onvif и питона .
-Запись
-	FishEye           172.18.191.196	PTZ камера(перед доской) 172.18.191.177	PTZ камера Axis 
-172.18.212.16/ 172.18.212.15	PTZ камера 10x
-172.18.191.95	PTZ камера 30x 172.18.191.63	Корпусная камера 36x 8МП	Корпусная камера Sunell 
-Старт/стоп	+	+	+	+	+		
-Сигнализация	+	-	+	-	-		
-Передача записи на удаленный сервер	не подд	не подд	не подд	не подд	не подд		
-Передача отдельных кадров по наступлению определенных событий	не подд	+	не подд	+	+		
-Изменение настроек плановой записи по расписанию	не подд	не подд	не подд	не подд	не подд		
+
+![](C:\Users\MI\Downloads\images_mark_onvif\recording_table.png)
 
 не поддерживается протокол recording, search, pullpoint
 
@@ -46,18 +39,8 @@ media_service = mycam.create_events_service()
 e = media_service.GetEventProperties()
 print(e)
 
-Изображение
 
-	FishEye           172.18.191.196	PTZ камера(перед доской) 172.18.191.177	PTZ камера Axis 
-172.18.212.16/ 172.18.212.15	PTZ камера 10x
-172.18.191.95	PTZ камера 30x 172.18.191.63	Корпусная камера 36x 8МП	Корпусная камера Sunell 
-Регулированиеbrightness	+	+	не подд	+	+		
-Contrast	+	+	не подд	+	+		
-Насыщенность (saturation)	+	+	не подд	+	+		
-Резкость
-(Sharpness)	+	+	не подд	+	+		
-color tone (cb/cr)	-	+	не подд	+	+		
-Регулирование фокуса	+	-	не подд	+	+		
+![](C:\Users\MI\Downloads\images_mark_onvif\image_table.png)
 
  у камеры Axis не поддерживается протокол imaging
 Код для получения информации по изображению:
@@ -82,102 +65,8 @@ print(responseGetImageSettings)
 
 
 
-Стримминг 
-
-	FishEye           172.18.191.196	PTZ камера(перед доской) 172.18.191.177	PTZ камера Axis 
-172.18.212.16/ 172.18.212.15	PTZ камера 10x
-172.18.191.95	PTZ камера 30x 172.18.191.63	Корпусная камера 36x 8МП	Корпусная камера Sunell 
-Настройка битрейта	‘BitrateLimit': 1024	‘BitrateLimit': 6192	'BitrateLimit': 0	'BitrateLimit': 4096	'BitrateLimit': 8000		
-Настройка фреймрейта	JPEG: FrameRateRange: 'Min': 1,
-       'Max': 25
-H264: 
-FrameRateRange: 
-'Min': 1,
-'Max': 25	H264: 
-FrameRateRange: 
-'Min': 1,
-'Max': 25	H264: 
-FrameRateRange: 
-'Min': 1,
-'Max': 25	JPEG: 
-FrameRateRange: 
-'Min': 1,
-'Max': 30
-H264:
-FrameRateRange: 
-'Min': 1,
-'Max': 25	JPEG: 
-FrameRateRange: 
-'Min': 1,
-'Max': 30
-H264:
-FrameRateRange: 
-'Min': 1,
-'Max': 25		
-Настройка интервала GOP	JPEG: -
-H264: 
-GovLengthRange:
-'Min': 1,
-'Max': 400	H264: 
-GovLengthRange:
-'Min': 1,
-'Max': 100	H264: 
-GovLengthRange:
-'Min': 1,
-'Max': 32767	JPEG:
-GovLengthRange:
-'Min': 1,
-'Max': 50	H264:
-GovLengthRange:
-'Min': 1,
-'Max': 50		
-Связь с битрейтом	JPEG: EncodingIntervalRange:     'Min': 1,
-'Max': 1;
-H264:
-EncodingIntervalRange:     'Min': 1,
-'Max': 1	H264:
-EncodingIntervalRange:     'Min': 1,
-'Max': 100	H264:
-EncodingIntervalRange:     'Min': 0,
-'Max': 0	JPEG:
-EncodingIntervalRange:     'Min': 1,
-'Max': 30
-H264:
-EncodingIntervalRange:     'Min': 1,
-'Max': 30	JPEG:
-EncodingIntervalRange:     'Min': 1,
-'Max': 30
-H264:
-EncodingIntervalRange:     'Min': 1,
-'Max': 30		
-Варианты регулирования качества потока	'Min': 0,
-'Max': 5
-
-
-	'Min': 0,
-'Max': 5	'Min': 0,
-'Max': 100	'Min': 0,
-'Max': 5	'Min': 0,
-'Max': 5		
-Выбор кодека	JPEG - Width: 352,Heigh: 288;Width:640,Heigh:480;Width: 704,Heigh:576;Width:1280,Heigh:720;Width: 1280,Heigh:960;Width:1920,Heigh:1080
-
-H264:
-Width:1280,Heigh:720;Width: 1280,Heigh:960;Width:1920,Heigh:1080;Width:2560,Heigh:1440;Width:352,Heigh:288;Width:640,Heigh:480;Width:704,Heigh:576;
-'H264ProfilesSupported':
-'Main', 'Baseline','High'	H264:
-Width:2560,Heigh:1920;Width:2560,Heigh:1440;Width:2304,Heigh:1296;Width:1920,Heigh:1080;Width:1280,Heigh:720; Width:640,Heigh:512;Width:800,Heigh:448; Width:704,Heigh:576;Width:640,Heigh:360;Width:352,Heigh:288;
-'H264ProfilesSupported':
-'Main'	H264:
-Width:1280,Heigh:720;Width:1024,Heigh:768;
-Width:1024,Heigh:576;Width:800,Heigh:600;
-H264:Baseline;
-	JPEG: Width:2560,Heigh:1440;
-H264: Width:2560,Heigh:1440;
-H264:Baseline;	JPEG: Width:2560,Heigh:720;
-H264:
-Width:1280,Heigh:720;Width:1280,Heigh:960;
-Width:1920,Heigh:1080;
-H264:Baseline;
+![](C:\Users\MI\Downloads\images_mark_onvif\stream1_table.png)
+![](C:\Users\MI\Downloads\images_mark_onvif\stream2_table.png)
 		
 
 Код для получения информации по стриммингу:
@@ -213,17 +102,8 @@ token = profiles[0].token
 configurations_list = media_service.GetVideoEncoderConfigurationOptions()
 print(configurations_list)
 
-Звук
 
-	FishEye           172.18.191.196	PTZ камера(перед доской) 172.18.191.177	PTZ камера Axis 
-172.18.212.16/ 172.18.212.15	PTZ камера 10x
-172.18.191.95	PTZ камера 30x 172.18.191.63	Корпусная камера 36x 8МП	Корпусная камера Sunell 
-Громкость	+	-	-	-	-		
-Тип входа	хз	хз	хз	хз	хз		
- Кодек	G711, G726, AAC	G711	AAC, G726, G711	G711	G711		
-Битрейт	G711 - 64; G726 - 16;
-AAC - 16,32,64	G711 - 64	AAC - 8,12,16,24,32; G726 - 24,32;
-G711 - 64 	G711 - 16	G711 - 16		
+![](C:\Users\MI\Downloads\images_mark_onvif\audio_table.png)
 
 Код для получения информации по звуку:
 1)
