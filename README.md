@@ -12,7 +12,7 @@ Test files for Onvif cameras functionality.
 
 для 5 из 6 камер уже можно составить таблицы, на основе исследований, сделанных с помощью протокола onvif и питона .
 
-![](./Users/MI/Downloads/images_mark_onvif/recording_table.png)
+![Images](./Users/MI/Downloads/images_mark_onvif/recording_table.png)
 
 не поддерживается протокол recording, search, pullpoint
 
