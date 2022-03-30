@@ -1,21 +1,21 @@
 # ONVIF_test_pyrhon
-Test files for Onvif cameras functionality. 
-Задача
+Тестирование функционала Onvif камер 
+## Задача
 Освоить различные функции камер  на примере доступных в лабораториях, изучив и подтвердив практическим использованием их возможности.
 В качестве примера рассмотреть возможности видеокамер:
 1.	FishEye камера, установлена в лаборатории на потолке.(172.18.191.196)
 2.	PTZ камера перед доской в лаборатории(172.18.191.177)
 3.	PTZ камера Axis на потолке в лаборатории(172.18.212.15/172.18.212.16)
 4.	PTZ камера 10х (будет установлена над телевизором в лаборатории. Такие же стоят в аудиториях) (172.18.191.95)
-5.	PTZ камера 30х (есть в лаборатории, такие стоят в лекционных аудиториях) (172.18.191.63 - сделали)
-6.	Корпусная камера 36х 8МП (в лаборатории, вероятно будет установлена в кожух).
+5.	PTZ камера 30х (в лекционной аудитории) (172.18.191.63 - сделали)
+6.	Корпусная камера 36х 8МП 
 
-для 5 из 6 камер уже можно составить таблицы, на основе исследований, сделанных с помощью протокола onvif и питона .
+Для 5 из 6 камер уже можно составить таблицы, на основе исследований, сделанных с помощью протокола onvif и питона .
 
-![image_table](https://user-images.githubusercontent.com/75256407/160886716-cd4314f2-3fac-47fc-b8c2-2224d7878c4e.png)
+![recording_table](https://user-images.githubusercontent.com/75256407/160934173-194b81af-677c-4548-afd7-dd3e1a70086c.png)
 
-не поддерживается протокол recording, search, pullpoint
-
+Не поддерживается протокол recording, search, pullpoint
+```python
 import os
 from onvif import ONVIFCamera
 
@@ -28,8 +28,11 @@ profiles = media_service.GetProfiles()
 token = profiles[0].token
 
 configurations_list = media_service.StopMulticastStreaming(token)
+```
 
 
+
+```python
 import os
 from onvif import ONVIFCamera
 
@@ -38,13 +41,17 @@ mycam = ONVIFCamera('172.18.191.63', 80, 'admin', 'Supervisor')
 media_service = mycam.create_events_service()
 e = media_service.GetEventProperties()
 print(e)
+```
 
 
-![](C:\Users\MI\Downloads\images_mark_onvif\image_table.png)
+
+
+![image_table](https://user-images.githubusercontent.com/75256407/160934170-091548c8-b13c-4e19-a16f-d434251f434b.png)
 
  у камеры Axis не поддерживается протокол imaging
 Код для получения информации по изображению:
 
+```python
 import os
 from onvif import ONVIFCamera
 
@@ -62,16 +69,18 @@ responseGetImageSettings = imaging.GetImagingSettings(requestGetImaging)
 
 
 print(responseGetImageSettings)
+```
 
 
 
-![](C:\Users\MI\Downloads\images_mark_onvif\stream1_table.png)
-![](C:\Users\MI\Downloads\images_mark_onvif\stream2_table.png)
+![stream1_table](https://user-images.githubusercontent.com/75256407/160934174-7021446c-aa2a-4bb5-b627-a5128e942fd6.png)
+![stream2_table](https://user-images.githubusercontent.com/75256407/160934176-5172e445-6572-40fa-a4d0-3817d84e3f5d.png)
 		
 
-Код для получения информации по стриммингу:
+### Код для получения информации по стриммингу:
 
 1)
+```python
 import os
 from onvif import ONVIFCamera
 
@@ -86,8 +95,12 @@ token = profiles[0].token
 configurations_list = media_service.GetVideoEncoderConfigurations()
 
 print(configurations_list)
+```
+
 
 2)
+
+```python
 import os
 from onvif import ONVIFCamera
 
@@ -101,12 +114,15 @@ token = profiles[0].token
 
 configurations_list = media_service.GetVideoEncoderConfigurationOptions()
 print(configurations_list)
+```
 
 
-![](C:\Users\MI\Downloads\images_mark_onvif\audio_table.png)
 
-Код для получения информации по звуку:
+![audio_table](https://user-images.githubusercontent.com/75256407/160934177-74670bf6-2563-448b-a094-8c0545ea3c5d.png)
+
+### Код для получения информации по звуку:
 1)
+```python
 import os
 from onvif import ONVIFCamera
 
@@ -121,7 +137,11 @@ token = profiles[0].token
 configurations_list = media_service.GetAudioEncoderConfigurationOptions()
 print(configurations_list)
 
+```
+
+
 2)
+```python
 from onvif import ONVIFCamera
 
 mycam = ONVIFCamera('172.18.191.63', 80, 'admin', 'Supervisor')
@@ -135,6 +155,8 @@ try:
    print(n)
 except Exception as e:
    print(e)
+```
+
 
 7.	Корпусная камера Sunell (в настоящее время лежит в Медиацентре, но может быть установлена в стенд для экспериментального исследования. 
 подключение через консоль с помощью VPN и ffmpeg к  ONVIF_CAMERA (на доску)
