@@ -24,11 +24,9 @@ perform_move(ptz, request, timeout)
 
 def move_down(ptz, request,status, timeout=1):
 print ('move down...')
-
 status.Position.PanTilt.x = 0
 status.Position.PanTilt.y = YMIN
 request.Velocity = status.Position
-
 perform_move(ptz, request, timeout)
 
 def move_right(ptz, request, status, timeout=1):
@@ -67,26 +65,21 @@ request.ProfileToken = media_profile.token
 ptz.Stop({'ProfileToken': media_profile.token})
 
 status = ptz.GetStatus({'ProfileToken': media_profile.token})
-# Get range of pan and tilt
-# NOTE: X and Y are velocity vector
 global XMAX, XMIN, YMAX, YMIN
 XMAX = ptz_configuration_options.Spaces.ContinuousPanTiltVelocitySpace[0].XRange.Max
 XMIN = ptz_configuration_options.Spaces.ContinuousPanTiltVelocitySpace[0].XRange.Min
 YMAX = ptz_configuration_options.Spaces.ContinuousPanTiltVelocitySpace[0].YRange.Max
 YMIN = ptz_configuration_options.Spaces.ContinuousPanTiltVelocitySpace[0].YRange.Min
 
-# move right
-move_right(ptz, request,status)
+move_down(ptz, request, status)
 
-ptz.Stop({'ProfileToken': media_profile.token})
-# move left
-# move_left(ptz, request, status)
-# ptz.Stop({'ProfileToken': media_profile.token})
-# Move up
-# move_up(ptz, request,status)
-# ptz.Stop({'ProfileToken': media_profile.token})
-# move down
-move_down(ptz, request,status)
+move_left(ptz, request, status)
+
+move_up(ptz, request, status)
+
+move_right(ptz, request, status)
+
+
 
 if __name__ == '__main__':
 continuous_move()
