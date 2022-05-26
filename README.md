@@ -1,7 +1,7 @@
 # ONVIF_test_pyrhon
 Тестирование функционала Onvif камер (ветка main)
 
-### [Ссылка на документацию](https://docs.google.com/document/d/1ETw8d2tpn5bOo9HkvTpNQYkNZ9M5JjlaIUZn-Op_XgA/edit)
+### [Ссылка на документацию](https://wiki.miem.hse.ru/e/ru/edu/tracks/networking/students19/ibyakupov/method_python)
 ## Задача
 Освоить различные функции камер  на примере доступных в лабораториях, изучив и подтвердив практическим использованием их возможности.
 В качестве примера рассмотреть возможности видеокамер:
