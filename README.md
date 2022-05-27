@@ -1,4 +1,4 @@
-# ONVIF_test_pyrhon
+# ONVIF_test_python
 Тестирование функционала Onvif камер (ветка main)
 
 ### [Ссылка на документацию](https://wiki.miem.hse.ru/e/ru/edu/tracks/networking/students19/ibyakupov/method_python)
